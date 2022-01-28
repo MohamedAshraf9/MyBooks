@@ -16,9 +16,15 @@ import com.megahed.mybooks.feature_data.domain.models.Topic
     version = 1
 )
 abstract class Database :RoomDatabase() {
+
+    companion object{
+        const val DATABASE_NAME="myBooks"
+    }
+
     abstract val documentDao:DocumentDao
     abstract val noteDao:NoteDao
     abstract val topicDao:TopicDao
     abstract val categoryDao:CategoryDao
+
 
 }
