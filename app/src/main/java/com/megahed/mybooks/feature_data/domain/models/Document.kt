@@ -6,7 +6,6 @@ import androidx.room.PrimaryKey
 import com.megahed.mybooks.helper.DocumentType
 
 @Entity(
-    tableName = "project",
     indices = [
         Index(value = ["hash"], unique = true)]
 )
