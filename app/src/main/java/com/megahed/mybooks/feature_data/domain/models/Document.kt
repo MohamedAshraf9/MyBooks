@@ -10,7 +10,7 @@ import com.megahed.mybooks.helper.DocumentType
         Index(value = ["hash"], unique = true)]
 )
 data class Document(
-    @PrimaryKey(autoGenerate = true) val id:Int,
+    @PrimaryKey(autoGenerate = true) val catId:Long,
     val hash:String,
     val title:String,
     val url:String,

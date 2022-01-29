@@ -1,17 +1,30 @@
 package com.megahed.mybooks.feature_data.domain.models
 
 import androidx.room.Entity
+import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import com.megahed.mybooks.helper.DocumentType
 import com.megahed.mybooks.ui.theme.*
 
-@Entity
+@Entity(
+    foreignKeys = [
+        ForeignKey(entity = Document::class,
+            parentColumns = ["docId"],
+            childColumns = ["docId"],
+            onDelete = ForeignKey.CASCADE,
+            onUpdate = ForeignKey.CASCADE
+        )
+
+    ]
+)
 data class Notes(
-    @PrimaryKey(autoGenerate = true) val id:Int,
+    @PrimaryKey(autoGenerate = true) val id:Long,
     val title:String,
     val content:String,
     val color:Int,
-    val time:Long
+    val time:Long,
+    val docId:Long,
+    val pageNum:Int
 )
 {
     companion object {

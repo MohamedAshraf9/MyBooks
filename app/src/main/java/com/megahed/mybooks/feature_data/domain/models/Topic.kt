@@ -5,6 +5,6 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Topic(
-    @PrimaryKey(autoGenerate = true) val id:Int,
+    @PrimaryKey(autoGenerate = true) val topicId:Long,
     val topicName:String,
 )
