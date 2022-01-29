@@ -24,7 +24,7 @@ data class Notes(
     val color:Int,
     val time:Long,
     val docId:Long,
-    val pageNum:Int
+    val pageNum:Int?=null
 )
 {
     companion object {

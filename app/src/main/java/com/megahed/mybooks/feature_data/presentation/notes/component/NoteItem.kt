@@ -115,7 +115,7 @@ fun NoteItem(
 fun show() {
     NoteItem(
         note = Notes(1,"title","content",
-            android.graphics.Color.CYAN,545464645L)
+            android.graphics.Color.CYAN,545464645L,1L,1)
     ) {
 
     }
