@@ -9,26 +9,26 @@ class NoteRepositoryImpl(
     private val noteDao: NoteDao
 ) :NoteRepository {
     override suspend fun insertNote(note: Notes) {
-        TODO("Not yet implemented")
+        noteDao.insertNote(note)
     }
 
     override suspend fun update(note: Notes) {
-        TODO("Not yet implemented")
+        noteDao.update(note)
     }
 
     override suspend fun deleteNote(note: Notes) {
-        TODO("Not yet implemented")
+        noteDao.deleteNote(note)
     }
 
     override fun getNotes(): Flow<List<Notes>> {
-        TODO("Not yet implemented")
+       return noteDao.getNotes()
     }
 
     override suspend fun getNoteById(id: Int): Notes? {
-        TODO("Not yet implemented")
+       return noteDao.getNoteById(id)
     }
 
     override fun deleteAllNotes() {
-        TODO("Not yet implemented")
+        noteDao.deleteAllNotes()
     }
 }

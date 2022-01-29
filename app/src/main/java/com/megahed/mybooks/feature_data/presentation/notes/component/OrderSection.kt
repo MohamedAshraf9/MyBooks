@@ -19,19 +19,19 @@ fun OrderSection(
         Row(
             modifier = Modifier.fillMaxWidth()
         ) {
-            DefaultChip(
+            DefaultRadioButton(
                 text = "Title",
                 selected = noteOrder is NoteOrder.Title,
                 onSelect = { onOrderChange(NoteOrder.Title(noteOrder.orderType)) }
             )
             Spacer(modifier = Modifier.width(8.dp))
-            DefaultChip(
+            DefaultRadioButton(
                 text = "Date",
                 selected = noteOrder is NoteOrder.Date,
                 onSelect = { onOrderChange(NoteOrder.Date(noteOrder.orderType)) }
             )
             Spacer(modifier = Modifier.width(8.dp))
-            DefaultChip(
+            DefaultRadioButton(
                 text = "Color",
                 selected = noteOrder is NoteOrder.Color,
                 onSelect = { onOrderChange(NoteOrder.Color(noteOrder.orderType)) }
@@ -41,7 +41,7 @@ fun OrderSection(
         Row(
             modifier = Modifier.fillMaxWidth()
         ) {
-            DefaultChip(
+            DefaultRadioButton(
                 text = "Ascending",
                 selected = noteOrder.orderType is OrderType.Ascending,
                 onSelect = {
@@ -49,7 +49,7 @@ fun OrderSection(
                 }
             )
             Spacer(modifier = Modifier.width(8.dp))
-            DefaultChip(
+            DefaultRadioButton(
                 text = "Descending",
                 selected = noteOrder.orderType is OrderType.Descending,
                 onSelect = {

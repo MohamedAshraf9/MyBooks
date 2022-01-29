@@ -6,6 +6,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -19,11 +21,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextDirection
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.plcoding.cleanarchitecturenoteapp.feature_note.domain.model.Note
-import com.plcoding.cleanarchitecturenoteapp.feature_note.presentation.add_edit_note.components.TransparentHintTextField
+import com.megahed.mybooks.feature_data.domain.models.Notes
+import com.megahed.mybooks.feature_data.presentation.add_edit_data.components.TransparentHintTextField
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -79,22 +83,22 @@ fun AddEditNoteScreen(
                 .background(noteBackgroundAnimatable.value)
                 .padding(16.dp)
         ) {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(8.dp),
+            LazyRow( modifier = Modifier
+                .fillMaxWidth()
+                .padding(3.dp),
                 horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-                Note.noteColors.forEach { color ->
-                    val colorInt = color.toArgb()
+            ){
+                items(Notes.noteColors){
+                    val colorInt = it.toArgb()
                     Box(
                         modifier = Modifier
                             .size(50.dp)
+                            .padding(5.dp)
                             .shadow(15.dp, CircleShape)
                             .clip(CircleShape)
-                            .background(color)
+                            .background(it)
                             .border(
-                                width = 3.dp,
+                                width = 2.dp,
                                 color = if (viewModel.noteColor.value == colorInt) {
                                     Color.Black
                                 } else Color.Transparent,
@@ -126,7 +130,7 @@ fun AddEditNoteScreen(
                 },
                 isHintVisible = titleState.isHintVisible,
                 singleLine = true,
-                textStyle = MaterialTheme.typography.h5
+                textStyle = myTextStyle(MaterialTheme.typography.h5)
             )
             Spacer(modifier = Modifier.height(16.dp))
             TransparentHintTextField(
@@ -139,9 +143,14 @@ fun AddEditNoteScreen(
                     viewModel.onEvent(AddEditNoteEvent.ChangeContentFocus(it))
                 },
                 isHintVisible = contentState.isHintVisible,
-                textStyle = MaterialTheme.typography.body1,
+                textStyle = myTextStyle(MaterialTheme.typography.body1),
                 modifier = Modifier.fillMaxHeight()
             )
         }
     }
+}
+@Composable
+fun myTextStyle(textStyle: TextStyle):TextStyle{
+   return textStyle.merge(TextStyle(textDirection=TextDirection.Content))
+
 }
