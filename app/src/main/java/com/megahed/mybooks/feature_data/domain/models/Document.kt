@@ -7,7 +7,8 @@ import com.megahed.mybooks.helper.DocumentType
 
 @Entity(
     indices = [
-        Index(value = ["hash"], unique = true)]
+        Index(value = ["hash"], unique = true)
+    ]
 )
 data class Document(
     @PrimaryKey(autoGenerate = true) val docId:Long,

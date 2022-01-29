@@ -18,13 +18,13 @@ import com.megahed.mybooks.ui.theme.*
     ]
 )
 data class Notes(
-    @PrimaryKey(autoGenerate = true) val id:Long,
+    @PrimaryKey(autoGenerate = true) val id:Long?,
     val title:String,
     val content:String,
     val color:Int,
     val time:Long,
-    val docId:Long,
-    val pageNum:Int?=null
+    val docId:Long?,
+    val pageNum:Int?
 )
 {
     companion object {
