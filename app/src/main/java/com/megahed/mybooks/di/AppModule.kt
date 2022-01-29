@@ -5,10 +5,7 @@ import androidx.room.Room
 import com.megahed.mybooks.feature_data.data.data_source.Database
 import com.megahed.mybooks.feature_data.data.repository.NoteRepositoryImpl
 import com.megahed.mybooks.feature_data.domain.repository.NoteRepository
-import com.megahed.mybooks.feature_data.domain.use_case.AddNote
-import com.megahed.mybooks.feature_data.domain.use_case.DeleteNote
-import com.megahed.mybooks.feature_data.domain.use_case.GetNotes
-import com.megahed.mybooks.feature_data.domain.use_case.NoteUseCases
+import com.megahed.mybooks.feature_data.domain.use_case.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -44,7 +41,7 @@ object AppModule {
             getNotes = GetNotes(repository),
             deleteNote = DeleteNote(repository),
             addNote = AddNote(repository),
-            //getNote = GetNote(repository)
+            getNote = GetNote(repository)
         )
     }
 
