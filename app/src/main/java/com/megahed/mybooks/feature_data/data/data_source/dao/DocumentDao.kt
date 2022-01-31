@@ -17,7 +17,7 @@ interface DocumentDao {
     suspend fun deleteDocument(document: Document)
 
     @Query("SELECT * FROM document")
-    fun getDocument(): Flow<List<Document>>
+    fun getDocuments(): Flow<List<Document>>
 
     @Query("SELECT * FROM document WHERE docId = :id")
     suspend fun getDocumentById(id: Int): Document?

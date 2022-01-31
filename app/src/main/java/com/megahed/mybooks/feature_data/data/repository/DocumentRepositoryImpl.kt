@@ -9,26 +9,26 @@ class DocumentRepositoryImpl(
     private val documentDao: DocumentDao
 ) :DocumentRepository {
     override suspend fun insertDocument(document: Document) {
-        TODO("Not yet implemented")
+        documentDao.insertDocument(document)
     }
 
     override suspend fun update(document: Document) {
-        TODO("Not yet implemented")
+        documentDao.update(document)
     }
 
     override suspend fun deleteDocument(document: Document) {
-        TODO("Not yet implemented")
+        documentDao.deleteDocument(document)
     }
 
-    override fun getDocument(): Flow<List<Document>> {
-        TODO("Not yet implemented")
+    override fun getDocuments(): Flow<List<Document>> {
+        return documentDao.getDocuments()
     }
 
     override suspend fun getDocumentById(id: Int): Document? {
-        TODO("Not yet implemented")
+       return documentDao.getDocumentById(id)
     }
 
     override fun deleteAllDocument() {
-        TODO("Not yet implemented")
+        documentDao.deleteAllDocument()
     }
 }

@@ -24,7 +24,6 @@ import com.megahed.mybooks.feature_data.presentation.notes.component.OrderSectio
 import com.megahed.mybooks.feature_data.presentation.util.Screen
 import kotlinx.coroutines.launch
 
-@ExperimentalMaterialApi
 @ExperimentalAnimationApi
 @Composable
 fun NotesScreen(

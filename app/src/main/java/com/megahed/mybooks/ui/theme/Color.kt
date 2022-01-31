@@ -1,6 +1,9 @@
 package com.megahed.mybooks.ui.theme
 
+import androidx.compose.material.Colors
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.compositeOver
 
 val Purple200 = Color(0xFFBB86FC)
 val Purple500 = Color(0xFF6200EE)
@@ -21,3 +24,11 @@ val LightPink = Color(0xFFE7B1CE)
 val LightYellow = Color(0xFFF4E981)
 val DarkYellow = Color(0xFFFFD24C)
 val RedYellow = Color(0xFFDD3C3C)
+
+
+
+
+@Composable
+fun Colors.compositedOnSurface(alpha: Float): Color {
+    return onSurface.copy(alpha = alpha).compositeOver(surface)
+}

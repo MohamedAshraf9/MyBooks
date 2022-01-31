@@ -12,7 +12,7 @@ interface DocumentRepository {
 
     suspend fun deleteDocument(document: Document)
 
-    fun getDocument(): Flow<List<Document>>
+    fun getDocuments(): Flow<List<Document>>
 
     suspend fun getDocumentById(id: Int): Document?
 

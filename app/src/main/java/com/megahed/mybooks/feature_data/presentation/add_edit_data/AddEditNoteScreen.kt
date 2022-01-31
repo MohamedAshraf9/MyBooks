@@ -22,8 +22,11 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextDirection
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.megahed.mybooks.feature_data.domain.models.Notes
@@ -150,7 +153,7 @@ fun AddEditNoteScreen(
     }
 }
 @Composable
-fun myTextStyle(textStyle: TextStyle):TextStyle{
-   return textStyle.merge(TextStyle(textDirection=TextDirection.Content))
+fun myTextStyle(textStyle: TextStyle,fontSize: TextUnit= TextUnit.Unspecified):TextStyle{
+   return textStyle.merge(TextStyle(textDirection=TextDirection.Content, fontSize =fontSize  ))
 
 }

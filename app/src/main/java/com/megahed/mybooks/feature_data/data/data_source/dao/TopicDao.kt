@@ -17,7 +17,7 @@ interface TopicDao {
     suspend fun deleteTopic(topic: Topic)
 
     @Query("SELECT * FROM topic")
-    fun getTopic(): Flow<List<Topic>>
+    fun getTopics(): Flow<List<Topic>>
 
     @Query("SELECT * FROM topic WHERE topicId = :id")
     suspend fun getTopicById(id: Int): Topic?

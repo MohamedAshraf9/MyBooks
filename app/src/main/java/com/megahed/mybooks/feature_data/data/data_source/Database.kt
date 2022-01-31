@@ -6,13 +6,22 @@ import com.megahed.mybooks.feature_data.data.data_source.dao.CategoryDao
 import com.megahed.mybooks.feature_data.data.data_source.dao.DocumentDao
 import com.megahed.mybooks.feature_data.data.data_source.dao.NoteDao
 import com.megahed.mybooks.feature_data.data.data_source.dao.TopicDao
-import com.megahed.mybooks.feature_data.domain.models.Category
-import com.megahed.mybooks.feature_data.domain.models.Document
-import com.megahed.mybooks.feature_data.domain.models.Notes
-import com.megahed.mybooks.feature_data.domain.models.Topic
+import com.megahed.mybooks.feature_data.domain.database_relashions.DocumentCategoryCrossRef
+import com.megahed.mybooks.feature_data.domain.database_relashions.DocumentTopicCrossRef
+import com.megahed.mybooks.feature_data.domain.database_relashions.DocumentsCrossRef
+import com.megahed.mybooks.feature_data.domain.models.*
 
 @Database(
-    entities = [Document::class,Topic::class,Notes::class,Category::class],
+    entities = [
+        Document::class,
+        Topic::class,
+        Notes::class,
+        Category::class,
+        TimeReading::class,
+        DocumentCategoryCrossRef::class,
+        DocumentsCrossRef::class,
+        DocumentTopicCrossRef::class
+               ],
     version = 1
 )
 abstract class Database :RoomDatabase() {

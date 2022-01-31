@@ -9,26 +9,26 @@ class TopicRepositoryImpl(
     private val topicDao: TopicDao
 ) : TopicRepository {
     override suspend fun insertTopic(topic: Topic) {
-        TODO("Not yet implemented")
+        topicDao.insertTopic(topic)
     }
 
     override suspend fun update(topic: Topic) {
-        TODO("Not yet implemented")
+        topicDao.update(topic)
     }
 
     override suspend fun deleteTopic(topic: Topic) {
-        TODO("Not yet implemented")
+        topicDao.deleteTopic(topic)
     }
 
-    override fun getTopic(): Flow<List<Topic>> {
-        TODO("Not yet implemented")
+    override fun getTopics(): Flow<List<Topic>> {
+       return topicDao.getTopics()
     }
 
     override suspend fun getTopicById(id: Int): Topic? {
-        TODO("Not yet implemented")
+      return  topicDao.getTopicById(id)
     }
 
     override fun deleteAllTopic() {
-        TODO("Not yet implemented")
+        topicDao.deleteAllTopic()
     }
 }

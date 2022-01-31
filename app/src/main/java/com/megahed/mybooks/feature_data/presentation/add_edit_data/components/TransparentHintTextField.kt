@@ -1,6 +1,7 @@
 package com.megahed.mybooks.feature_data.presentation.add_edit_data.components
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.Text
@@ -30,11 +31,21 @@ fun TransparentHintTextField(
             onValueChange = onValueChange,
             singleLine = singleLine,
             textStyle = textStyle,
-            modifier = Modifier
-                .fillMaxWidth()
-                .onFocusChanged {
-                    onFocusChange(it)
-                }
+           modifier= if (singleLine) {
+                 Modifier
+                    .fillMaxWidth()
+                    .onFocusChanged {
+                        onFocusChange(it)
+                    }
+            } else {
+               Modifier
+                   .fillMaxWidth()
+                   .fillMaxHeight()
+                   .onFocusChanged {
+                       onFocusChange(it)
+                   }
+            }
+
         )
         if(isHintVisible) {
             Text(text = hint, style = textStyle, color = Color.DarkGray)

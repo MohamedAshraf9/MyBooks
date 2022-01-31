@@ -17,10 +17,10 @@ data class Document(
     val url:String,
     val imageUrl:String,
     val documentType: DocumentType,
-    val comment:String,
-    val rate:Int,
-    val pagesDone:Int,
-    val pages:Int
+    val comment:String="",
+    val rate:Float=0f,
+    val pagesDone:Int=0,
+    val pages:Int=0
 
 
 )

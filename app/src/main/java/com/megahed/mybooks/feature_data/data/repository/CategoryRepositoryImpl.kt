@@ -10,26 +10,26 @@ class CategoryRepositoryImpl(
 ):CategoryRepository {
 
     override suspend fun insertCategory(category: Category) {
-        TODO("Not yet implemented")
+        categoryDao.insertCategory(category)
     }
 
     override suspend fun update(category: Category) {
-        TODO("Not yet implemented")
+        categoryDao.update(category)
     }
 
     override suspend fun deleteCategory(category: Category) {
-        TODO("Not yet implemented")
+        categoryDao.deleteCategory(category)
     }
 
-    override fun getCategory(): Flow<List<Category>> {
-        TODO("Not yet implemented")
+    override fun getCategories(): Flow<List<Category>> {
+       return categoryDao.getCategories()
     }
 
     override suspend fun getCategoryById(id: Int): Category? {
-        TODO("Not yet implemented")
+       return categoryDao.getCategoryById(id)
     }
 
     override fun deleteAllCategory() {
-        TODO("Not yet implemented")
+        categoryDao.deleteAllCategory()
     }
 }

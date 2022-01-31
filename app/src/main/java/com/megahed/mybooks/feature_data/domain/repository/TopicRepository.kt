@@ -12,7 +12,7 @@ interface TopicRepository {
 
     suspend fun deleteTopic(topic: Topic)
 
-    fun getTopic(): Flow<List<Topic>>
+    fun getTopics(): Flow<List<Topic>>
 
     suspend fun getTopicById(id: Int): Topic?
 
