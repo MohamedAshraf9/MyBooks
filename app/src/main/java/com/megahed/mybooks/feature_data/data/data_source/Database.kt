@@ -22,7 +22,8 @@ import com.megahed.mybooks.feature_data.domain.models.*
         DocumentsCrossRef::class,
         DocumentTopicCrossRef::class
                ],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 abstract class Database :RoomDatabase() {
 

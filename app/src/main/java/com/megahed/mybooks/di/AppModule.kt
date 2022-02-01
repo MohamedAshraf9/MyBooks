@@ -3,7 +3,9 @@ package com.megahed.mybooks.di
 import android.app.Application
 import androidx.room.Room
 import com.megahed.mybooks.feature_data.data.data_source.Database
+import com.megahed.mybooks.feature_data.data.repository.DocumentRepositoryImpl
 import com.megahed.mybooks.feature_data.data.repository.NoteRepositoryImpl
+import com.megahed.mybooks.feature_data.domain.repository.DocumentRepository
 import com.megahed.mybooks.feature_data.domain.repository.NoteRepository
 import com.megahed.mybooks.feature_data.domain.use_case.*
 import dagger.Module
@@ -32,6 +34,12 @@ object AppModule {
     @Singleton
     fun provideNoteRepository(db: Database): NoteRepository {
         return NoteRepositoryImpl(db.noteDao)
+    }
+
+    @Provides
+    @Singleton
+    fun provideDocumentRepository(db: Database): DocumentRepository {
+        return DocumentRepositoryImpl(db.documentDao)
     }
 
     @Provides

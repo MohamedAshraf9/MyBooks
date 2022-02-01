@@ -31,6 +31,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.megahed.mybooks.feature_data.domain.models.Notes
 import com.megahed.mybooks.feature_data.presentation.add_edit_data.components.TransparentHintTextField
+import com.megahed.mybooks.helper.UiEvent
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -55,12 +56,12 @@ fun AddEditNoteScreen(
     LaunchedEffect(key1 = true) {
         viewModel.eventFlow.collectLatest { event ->
             when(event) {
-                is AddEditNoteViewModel.UiEvent.ShowSnackbar -> {
+                is UiEvent.ShowSnackbar -> {
                     scaffoldState.snackbarHostState.showSnackbar(
                         message = event.message
                     )
                 }
-                is AddEditNoteViewModel.UiEvent.SaveNote -> {
+                is UiEvent.SaveNote -> {
                     navController.navigateUp()
                 }
             }

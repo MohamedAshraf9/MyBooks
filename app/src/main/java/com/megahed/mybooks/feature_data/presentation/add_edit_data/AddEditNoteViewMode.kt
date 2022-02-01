@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.megahed.mybooks.feature_data.domain.models.Notes
 import com.megahed.mybooks.feature_data.domain.use_case.NoteUseCases
+import com.megahed.mybooks.helper.UiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -116,8 +117,8 @@ class AddEditNoteViewModel @Inject constructor(
         }
     }
 
-    sealed class UiEvent {
+   /* sealed class UiEvent {
         data class ShowSnackbar(val message: String): UiEvent()
-        object SaveNote: UiEvent()
-    }
+
+    }*/
 }

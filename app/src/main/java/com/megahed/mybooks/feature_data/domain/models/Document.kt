@@ -6,12 +6,11 @@ import androidx.room.PrimaryKey
 import com.megahed.mybooks.helper.DocumentType
 
 @Entity(
-    indices = [
+   /* indices = [
         Index(value = ["hash"], unique = true)
-    ]
+    ]*/
 )
 data class Document(
-    @PrimaryKey(autoGenerate = true) val docId:Long,
     val hash:String,
     val title:String,
     val url:String,
@@ -23,4 +22,6 @@ data class Document(
     val pages:Int=0
 
 
-)
+){
+    @PrimaryKey(autoGenerate = true) var docId:Long=0
+}

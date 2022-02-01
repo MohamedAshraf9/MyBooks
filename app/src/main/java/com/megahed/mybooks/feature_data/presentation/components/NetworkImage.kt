@@ -1,5 +1,6 @@
 package com.megahed.mybooks.feature_data.presentation.components
 
+import android.graphics.Bitmap
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -23,11 +24,12 @@ fun NetworkImage(
     contentDescription: String?,
     modifier: Modifier = Modifier,
     contentScale: ContentScale = ContentScale.Crop,
-    placeholderColor: Color? = MaterialTheme.colors.compositedOnSurface(0.2f)
+    placeholderColor: Color? = MaterialTheme.colors.compositedOnSurface(0.2f),
+    bitmap: Bitmap
 ) {
     Box(modifier) {
         val painter = rememberImagePainter(
-            data = url)
+            data = bitmap)
 
         Image(
             painter = painter,

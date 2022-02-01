@@ -1,6 +1,7 @@
 package com.megahed.mybooks.feature_data.presentation.documents
 
 import android.content.res.Configuration
+import android.graphics.Bitmap
 import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -47,6 +48,7 @@ fun DocumentItemHorizontal(
     modifier: Modifier=Modifier,
     onItemClick: () -> Unit
 ) {
+
     Card(
         shape = RoundedCornerShape(14.dp),
         modifier = modifier
@@ -123,7 +125,8 @@ fun DocumentItemVertical(
     titleStyle: TextStyle = MaterialTheme.typography.subtitle1,
     showCreator:Boolean=false,
     iconSize: Dp = 16.dp,
-    elevation: Dp=3.dp
+    elevation: Dp=3.dp,
+    bitmap: Bitmap
 ) {
     Surface(
         modifier = modifier.padding(4.dp),
@@ -150,7 +153,8 @@ fun DocumentItemVertical(
                     .constrainAs(image) {
                         centerHorizontallyTo(parent)
                         top.linkTo(parent.top)
-                    }
+                    },
+                bitmap = bitmap
             )
             val outlineColor = LocalElevationOverlay.current?.apply(
                 color = MaterialTheme.colors.surface,
@@ -164,7 +168,8 @@ fun DocumentItemVertical(
                     .constrainAs(avatar) {
                         centerHorizontallyTo(parent)
                         centerAround(image.bottom)
-                    }
+                    },
+                bitmap = bitmap
             )
             Text(
                 text = document.documentType.name,
@@ -227,7 +232,8 @@ fun OutlinedAvatar(
     url: String,
     modifier: Modifier = Modifier,
     outlineSize: Dp = 3.dp,
-    outlineColor: Color = MaterialTheme.colors.surface
+    outlineColor: Color = MaterialTheme.colors.surface,
+    bitmap :Bitmap
 ) {
     Box(
         modifier = modifier.background(
@@ -241,7 +247,9 @@ fun OutlinedAvatar(
             modifier = Modifier
                 .padding(outlineSize)
                 .fillMaxSize()
-                .clip(CircleShape)
+                .clip(CircleShape),
+            bitmap = bitmap
+
         )
     }
 }
@@ -316,8 +324,7 @@ private fun shortestColumn(colHeights: IntArray): Int {
 @Composable
 fun show() {
   DocumentItemHorizontal(
-      Document(
-      1,"cxc","Book",
+      Document("cxc","Book",
         "sf",
           Uri.parse(
               "android.resource://" + R::class.java.getPackage().name + "/" + R.drawable.felengaz
